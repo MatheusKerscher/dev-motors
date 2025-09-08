@@ -1,3 +1,5 @@
+import Article from "@/components/article";
+import Container from "@/components/container";
 import Hero from "@/components/hero";
 import Submenu from "@/components/home/submenu";
 import { getDataHome } from "@/utils/actions/get-data";
@@ -24,6 +26,16 @@ export default async function Home() {
           />
         }
       />
+
+      <Container>
+        <>
+          <Article
+            title="SOBRE"
+            description={object.metadata.about.description}
+            imgUrl={object.metadata.about.banner.url}
+          />
+        </>
+      </Container>
     </main>
   );
 }
