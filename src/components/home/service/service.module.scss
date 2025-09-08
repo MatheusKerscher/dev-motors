@@ -1,0 +1,16 @@
+.serviceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  img {
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+  }
+}

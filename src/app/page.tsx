@@ -1,9 +1,13 @@
+import { MessageCircle } from "lucide-react";
+
 import Article from "@/components/article";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
-import Submenu from "@/components/home/submenu";
+import Service from "@/components/home/service";
 import { getDataHome } from "@/utils/actions/get-data";
-import { MessageCircle } from "lucide-react";
+import Submenu from "@/components/home/submenu";
+
+import styles from "./home.module.scss";
 
 export default async function Home() {
   const { object } = await getDataHome();
@@ -34,6 +38,18 @@ export default async function Home() {
             description={object.metadata.about.description}
             imgUrl={object.metadata.about.banner.url}
           />
+
+          {object.metadata.services.length && (
+            <section>
+              <h2 className={styles.servicesTitle}>CONHEÇA NOSSOS SERVIÇOS</h2>
+
+              <div className={styles.cardServiceContainer}>
+                {object.metadata.services.map((s, i) => (
+                  <Service key={i} title={s.title} imgUrl={s.banner.url} />
+                ))}
+              </div>
+            </section>
+          )}
         </>
       </Container>
     </main>
