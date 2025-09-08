@@ -1,0 +1,19 @@
+.itemContainer {
+  display: flex;
+  gap: 8px;
+  color: #ffffff;
+  align-items: center;
+  font-size: 14px;
+
+  p {
+    font-weight: lighter;
+  }
+
+  @media screen and (max-width: 680px) {
+    p,
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+}

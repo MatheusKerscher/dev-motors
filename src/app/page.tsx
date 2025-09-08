@@ -8,6 +8,7 @@ import { getDataHome } from "@/utils/actions/get-data";
 import Submenu from "@/components/home/submenu";
 
 import styles from "./home.module.scss";
+import Contact from "@/components/home/contact";
 
 export default async function Home() {
   const { object } = await getDataHome();
@@ -40,7 +41,7 @@ export default async function Home() {
           />
 
           {object.metadata.services.length && (
-            <section>
+            <section id="services">
               <h2 className={styles.servicesTitle}>CONHEÇA NOSSOS SERVIÇOS</h2>
 
               <div className={styles.cardServiceContainer}>
@@ -50,6 +51,23 @@ export default async function Home() {
               </div>
             </section>
           )}
+
+          <Contact
+            phone={object.metadata.contact.phone}
+            email={object.metadata.contact.email}
+            address={object.metadata.contact.address}
+            time={object.metadata.contact.time}
+            buttonLabel={object.metadata.hero.cta_label}
+            buttonUrl={object.metadata.hero.cta_url}
+            buttonBackground={object.metadata.hero.cta_background}
+            buttonColor={object.metadata.hero.cta_text_color}
+            icon={
+              <MessageCircle
+                color={object.metadata.hero.cta_text_color}
+                size={20}
+              />
+            }
+          />
         </>
       </Container>
     </main>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Sora } from "next/font/google";
+import { Sora } from "next/font/google";
 import "./globals.scss";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const SoraSans = Sora({
   variable: "--font-sora-sans",
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${SoraSans.variable}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
