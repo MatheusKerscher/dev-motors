@@ -22,6 +22,8 @@ const Hero = ({
   buttonColor,
   icon,
 }: HeroProps) => {
+  console.log(buttonBackground, buttonColor);
+
   return (
     <section className={styles.main}>
       <div className={styles.heroContainer}>

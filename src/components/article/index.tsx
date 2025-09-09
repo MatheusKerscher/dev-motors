@@ -9,6 +9,8 @@ type ArticleProps = {
   showButton?: boolean;
   buttonLabel?: string;
   buttonUrl?: string;
+  buttonBackground?: string;
+  buttonTextColor?: string;
 };
 
 const Article = ({
@@ -18,6 +20,8 @@ const Article = ({
   showButton = false,
   buttonLabel,
   buttonUrl,
+  buttonBackground,
+  buttonTextColor,
 }: ArticleProps) => {
   return (
     <section className={styles.articleContainer}>
@@ -31,6 +35,10 @@ const Article = ({
               target="_blank"
               href={buttonUrl}
               className={styles.buttonArticle}
+              style={{
+                backgroundColor: buttonBackground,
+                color: buttonTextColor,
+              }}
             >
               {buttonLabel}
             </a>
