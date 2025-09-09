@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Submenu submenuItems={submenuProps} />
+      {submenuProps.length > 0 && <Submenu submenuItems={submenuProps} />}
 
       <Hero
         title={homeProps.metadata.hero.slogan}
