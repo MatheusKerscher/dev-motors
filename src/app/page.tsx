@@ -4,29 +4,30 @@ import Article from "@/components/article";
 import Container from "@/components/container";
 import Hero from "@/components/hero";
 import Service from "@/components/home/service";
-import { getDataHome } from "@/utils/actions/get-data";
+import { getDataHome, getSubmenuItems } from "@/utils/actions/get-data";
 import Submenu from "@/components/home/submenu";
 
 import styles from "./home.module.scss";
 import Contact from "@/components/home/contact";
 
 export default async function Home() {
-  const { object } = await getDataHome();
+  const { object: homeProps } = await getDataHome();
+  const { objects: submenuProps } = await getSubmenuItems();
 
   return (
     <main>
-      <Submenu />
+      <Submenu submenuItems={submenuProps} />
 
       <Hero
-        title={object.metadata.hero.slogan}
-        bannerUrl={object.metadata.hero.banner.url}
-        buttonLabel={object.metadata.hero.cta_label}
-        buttonUrl={object.metadata.hero.cta_url}
-        buttonBackground={object.metadata.hero.cta_background}
-        buttonColor={object.metadata.hero.cta_text_color}
+        title={homeProps.metadata.hero.slogan}
+        bannerUrl={homeProps.metadata.hero.banner.url}
+        buttonLabel={homeProps.metadata.hero.cta_label}
+        buttonUrl={homeProps.metadata.hero.cta_url}
+        buttonBackground={homeProps.metadata.hero.cta_background}
+        buttonColor={homeProps.metadata.hero.cta_text_color}
         icon={
           <MessageCircle
-            color={object.metadata.hero.cta_text_color}
+            color={homeProps.metadata.hero.cta_text_color}
             size={20}
           />
         }
@@ -36,16 +37,16 @@ export default async function Home() {
         <>
           <Article
             title="SOBRE"
-            description={object.metadata.about.description}
-            imgUrl={object.metadata.about.banner.url}
+            description={homeProps.metadata.about.description}
+            imgUrl={homeProps.metadata.about.banner.url}
           />
 
-          {object.metadata.services.length && (
+          {homeProps.metadata.services.length && (
             <section id="services">
               <h2 className={styles.servicesTitle}>CONHEÇA NOSSOS SERVIÇOS</h2>
 
               <div className={styles.cardServiceContainer}>
-                {object.metadata.services.map((s, i) => (
+                {homeProps.metadata.services.map((s, i) => (
                   <Service key={i} title={s.title} imgUrl={s.banner.url} />
                 ))}
               </div>
@@ -53,17 +54,17 @@ export default async function Home() {
           )}
 
           <Contact
-            phone={object.metadata.contact.phone}
-            email={object.metadata.contact.email}
-            address={object.metadata.contact.address}
-            time={object.metadata.contact.time}
-            buttonLabel={object.metadata.hero.cta_label}
-            buttonUrl={object.metadata.hero.cta_url}
-            buttonBackground={object.metadata.hero.cta_background}
-            buttonColor={object.metadata.hero.cta_text_color}
+            phone={homeProps.metadata.contact.phone}
+            email={homeProps.metadata.contact.email}
+            address={homeProps.metadata.contact.address}
+            time={homeProps.metadata.contact.time}
+            buttonLabel={homeProps.metadata.hero.cta_label}
+            buttonUrl={homeProps.metadata.hero.cta_url}
+            buttonBackground={homeProps.metadata.hero.cta_background}
+            buttonColor={homeProps.metadata.hero.cta_text_color}
             icon={
               <MessageCircle
-                color={object.metadata.hero.cta_text_color}
+                color={homeProps.metadata.hero.cta_text_color}
                 size={20}
               />
             }

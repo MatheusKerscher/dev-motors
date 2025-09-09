@@ -5,8 +5,13 @@ import { Menu, X } from "lucide-react";
 
 import styles from "./submenu.module.scss";
 import { useEffect, useState } from "react";
+import type { SubmenuItem } from "@/utils/types/submenu.type";
 
-const Submenu = () => {
+type SubmenuProps = {
+  submenuItems: SubmenuItem[];
+};
+
+const Submenu = ({ submenuItems }: SubmenuProps) => {
   const [submenuOpen, setSubmenuOpen] = useState(false);
 
   useEffect(() => {
@@ -43,12 +48,11 @@ const Submenu = () => {
           </button>
         )}
         <ul className={styles.listLinks}>
-          <li>
-            <Link href="/post/1">Post 1</Link>
-          </li>
-          <li>
-            <Link href="/post/1">Post 1</Link>
-          </li>
+          {submenuItems.map((s) => (
+            <li key={s.slug}>
+              <Link href={`/post/${s.slug}`}>{s.title}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </section>
