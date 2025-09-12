@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import type { HomeProps } from "../types/home.type";
 import type { PostProps } from "../types/post.type";
 import type { SubmenuProps } from "../types/submenu.type";
@@ -49,12 +50,14 @@ const getPostBySlug = async (slug: string): Promise<PostProps> => {
     );
 
     if (!res.ok) {
-      throw new Error("Fail to fetch post data");
+      console.error("Fail to fetch post data");
+      redirect("/");
     }
 
     return res.json();
   } catch (error) {
-    throw new Error("Fail to fetch post data");
+    console.error(error);
+    redirect("/");
   }
 };
 
