@@ -12,6 +12,17 @@ const SoraSans = Sora({
 export const metadata: Metadata = {
   title: "Dev Motors",
   description: "Site do Dev Motors, a melhor oficina do país",
+  keywords: ["oficina", "oficina carros", "carros", "manutenção de carros"],
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+    },
+  },
 };
 
 export default function RootLayout({
