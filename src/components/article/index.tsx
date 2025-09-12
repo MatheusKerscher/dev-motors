@@ -52,6 +52,7 @@ const Article = ({
           src={imgUrl}
           alt="Imagem da empresa"
           quality={100}
+          sizes="(max-width: 480px) 100vw, (max-width: 1024) 75vw, 60vw"
           priority
           fill
         />

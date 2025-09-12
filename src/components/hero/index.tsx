@@ -43,10 +43,11 @@ const Hero = ({
         <Image
           alt={title}
           src={bannerUrl}
+          className={styles.image}
+          sizes="(max-width: 480px) 100vw, (max-width: 1024) 75vw, 60vw"
           quality={100}
           priority
           fill
-          className={styles.image}
         />
       </div>
     </section>
