@@ -1,6 +1,6 @@
 # Dev Motors
 
-![Thumbnail](./public/images/thumbnail.png)
+![Thumbnail](./public/thumbnail.png)
 
 Este é um projeto de blog desenvolvido para a oficina **Dev Motors**, utilizando as seguintes tecnologias:
 
