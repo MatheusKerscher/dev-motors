@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dev Motors
 
-## Getting Started
+![Thumbnail](/public/images/thumbnail.png)
 
-First, run the development server:
+Este é um projeto de blog desenvolvido para a oficina **Dev Motors**, utilizando as seguintes tecnologias:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **[Next.js](https://nextjs.org/)**: Framework React para construção de aplicações web modernas.
+- **[Cosmic.js](https://www.cosmicjs.com/)**: CMS headless usado para gerenciar o conteúdo do blog.
+- **SCSS**: Pré-processador CSS para estilização avançada e modular.
+
+## Funcionalidades
+
+- **Página inicial** com informações sobre a oficina, serviços oferecidos e contatos.
+- **Blog de posts** com detalhes de cada postagem.
+- **Menu responsivo** para navegação entre as páginas.
+- **Hero banner** com chamada para ação (CTA).
+- **Seção de serviços** com imagens e descrições.
+- **Seção de contato** com informações como telefone, e-mail e endereço.
+- **Design responsivo** para dispositivos móveis e desktops.
+
+## Estrutura do Projeto
+
+A estrutura do projeto está organizada da seguinte forma:
+
+```
+src/
+├── app/                # Páginas e layout principal
+├── components/         # Componentes reutilizáveis
+├── utils/              # Tipos e funções utilitárias
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js**: Para renderização no lado do servidor (SSR) e geração de páginas estáticas.
+- **Cosmic.js**: Para gerenciamento de conteúdo dinâmico.
+- **SCSS**: Para estilização modular e reutilizável.
+- **React**: Biblioteca para construção de interfaces de usuário.
+- **Lucide Icons**: Ícones modernos para melhorar a interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Como Executar o Projeto
 
-## Learn More
+1. Clone o repositório:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/MatheusKerscher/dev-motors.git
+   cd dev-motors
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Instale as dependências:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Configure as variáveis de ambiente:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Crie um arquivo `.env.local` na raiz do projeto e adicione as seguintes variáveis:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```env
+   NEXT_PUBLIC_API_URL=<URL da API do Cosmic.js>
+   COSMIC_READ_KEY=<Chave de leitura do Cosmic.js>
+   ```
+
+4. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Abra [http://localhost:3000](http://localhost:3000) no navegador para visualizar o projeto.
+
+## Scripts Disponíveis
+
+- `npm run dev`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera a build de produção.
+- `npm run start`: Inicia o servidor de produção.
+
+## Estilização
+
+O projeto utiliza SCSS para estilização modular. Cada componente possui seu próprio arquivo `.module.scss`, garantindo isolamento de estilos e facilidade de manutenção.
+
+## Gerenciamento de Conteúdo
+
+O conteúdo do blog é gerenciado pelo **Cosmic.js**, permitindo a criação e edição de posts, serviços e informações de contato diretamente no painel do CMS.
+
+## Deploy
+
+O projeto pode ser facilmente implantado na **Vercel**, a plataforma oficial para aplicações Next.js. Para mais informações, consulte a [documentação de deploy do Next.js](https://nextjs.org/docs/app/building-your-application/deploying).
